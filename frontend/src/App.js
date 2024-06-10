@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import bg from './img/bg.png';
 import { MainLayout } from "./styles/Layouts";
-import Orb from "./Components/Orb/Orb";
+import BackgroundWindow from "./Components/BackgroundWindow/BackgroundWindow";
 import Navigation from "./Components/Navigation/Navigation";
 import { useMemo, useState } from "react";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -21,11 +21,9 @@ function App() {
     switch (active) {
       case 1:
         return <Dashboard />
-      // case 2:
-      //   return <Dashboard />
-      case 3:
+      case 2:
         return <Incomes />
-      case 4:
+      case 3:
         return <Expenses />
     
       default:
@@ -34,13 +32,13 @@ function App() {
   }
 
   //no refreshing of animation
-  const orbMemo = useMemo(() => {
-        return <Orb />
+  const windowMemo = useMemo(() => {
+        return <BackgroundWindow />
   }, [])
 
   return (
     <AppStyled bg={bg} className="App">
-    {orbMemo}
+    {windowMemo}
      <MainLayout>
         <Navigation active={active} setActive={setActive} />
         <main>
