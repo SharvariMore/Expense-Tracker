@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json())
 app.use(cors())
 
-readdirSync('./routes').map((route) => app.use('/', require('./routes/' + route)))
+readdirSync('./routes').map((route) => app.use('/api/v1', require('./routes/' + route)))
 
 app.get('/', (req, res) => {
     res.send("Hello World!")
